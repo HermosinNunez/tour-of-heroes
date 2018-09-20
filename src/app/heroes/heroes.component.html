@@ -1,0 +1,8 @@
+
+<div class="container">
+  <div class="name-details"> {{hero.name | uppercase}} Details</div>
+  <div class="name-tag"><span>Name: </span>{{hero.name}}<br>
+    <label>Edit: <input [(ngModel)] = 'hero.name' placeholder = 'name'></label>
+  </div>
+  <div class="id-tag"><span>ID: </span>{{hero.id}}</div>
+</div>
