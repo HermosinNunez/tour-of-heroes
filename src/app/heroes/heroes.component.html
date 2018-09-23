@@ -1,8 +1,16 @@
 
 <div class="container">
-  <div class="name-details"> {{hero.name | uppercase}} Details</div>
-  <div class="name-tag"><span>Name: </span>{{hero.name}}<br>
-    <label>Edit: <input [(ngModel)] = 'hero.name' placeholder = 'name'></label>
+    <h2>My Heroes</h2>
+    <ul class="heroes">
+      <li *ngFor= "let hero of heroArray">
+        <span class="badge">{{hero.id}}</span> <h3>{{hero.name}}</h3>
+        <span>{{hero.description}}</span>
+      </li>
+    </ul>
+  <div class="add-container">
+    <label> New name: <input [(ngModel)] = 'auxName'></label>
+    <label> New description: <input [(ngModel)] = 'auxDescription'></label>
+    <button
+    (click)="addHero()">Add Hero</button>
   </div>
-  <div class="id-tag"><span>ID: </span>{{hero.id}}</div>
 </div>

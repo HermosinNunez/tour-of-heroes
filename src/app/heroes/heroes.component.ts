@@ -7,11 +7,12 @@ import {Hero} from '../hero';
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent implements OnInit {
-    hero: Hero = {
-      name: 'Molten Legs',
-        id: 1,
-        description: 'He just try to help!'
-    };
+    heroArray: Hero[] = [
+      { name: 'Molten Legs', id: 1, description: 'He just try to help!' },
+      { name: 'Long boi', id: 2, description: 'He very long, yo!' }
+    ];
+    auxName: string;
+    auxDescription: string;
 
   constructor() { }
 
@@ -19,4 +20,17 @@ export class HeroesComponent implements OnInit {
 
   }
 
+  addHero() {
+    if (this.auxName && this.auxDescription) {
+      let auxId: number = this.heroArray.length + 1;
+      let auxHero: Hero = {
+        name: this.auxName,
+        id: auxId,
+        description: this.auxDescription
+      };
+      this.heroArray.push(auxHero);
+      this.auxName = null;
+      this.auxDescription = null;
+    }
+  }
 }
